@@ -11,4 +11,11 @@ public class Aula {
     public String getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "Aula{" +
+                "id='" + id + '\'' +
+                '}';
+    }
 }
