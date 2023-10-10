@@ -5,7 +5,7 @@ public class Sesion {
     private String horaInicio;
     private String horaFin;
     private Responsable responsable;
-    private Integer numerSesion;
+    private Integer numeroSesion;
     private Integer diaSemana;
     private Aula aula;
 
@@ -13,7 +13,7 @@ public class Sesion {
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
         this.responsable = responsable;
-        this.numerSesion = numerSesion;
+        this.numeroSesion = numerSesion;
         this.diaSemana = diaSemana;
         this.aula = aula;
     }
@@ -30,8 +30,8 @@ public class Sesion {
         return responsable;
     }
 
-    public Integer getNumerSesion() {
-        return numerSesion;
+    public Integer getNumeroSesion() {
+        return numeroSesion;
     }
 
     public Integer getDiaSemana() {
@@ -48,7 +48,7 @@ public class Sesion {
                 "horaInicio='" + horaInicio + '\'' +
                 ", horaFin='" + horaFin + '\'' +
                 ", responsable=" + responsable +
-                ", numerSesion=" + numerSesion +
+                ", numerSesion=" + numeroSesion +
                 ", diaSemana=" + diaSemana +
                 ", aula=" + aula +
                 '}';
