@@ -6,9 +6,9 @@ import com.gestionAulas.Gestion.domain.Sesion;
 
 import java.util.List;
 
-public class SesionUseCase {
+public class AulasUseCases {
     private AulasRepository aulasRepository;
-    public SesionUseCase(AulasRepository aulasRepository){
+    public AulasUseCases(AulasRepository aulasRepository){
         this.aulasRepository=aulasRepository;
     }
     public List<Aula> getAll(){
