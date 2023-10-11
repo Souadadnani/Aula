@@ -2,6 +2,7 @@ package com.gestionAulas.Gestion.infrastructura.data;
 
 import com.gestionAulas.Gestion.domain.Aula;
 import com.gestionAulas.Gestion.domain.AulasRepository;
+import com.gestionAulas.Gestion.domain.Responsable;
 import com.gestionAulas.Gestion.domain.Sesion;
 
 import java.sql.PreparedStatement;
@@ -17,22 +18,28 @@ public class AulasRepositorySQL implements AulasRepository {
 
 
     @Override
-    public List<Aula> getAll() {
-        List<Aula> aulas = new ArrayList<>();
+    public List<Sesion> getAll() {
+        List<Sesion> sesiones = new ArrayList<>();
+
 
         try {
             Statement st = DBConnection.getInstance().createStatement();
-            ResultSet rs = st.executeQuery("select distinct aula from sesion;");
+            ResultSet rs = st.executeQuery("select * from sesion;");
             while(rs.next()){
-                Aula aula = new Aula(
-                        rs.getString("aula")
-                );
-                aulas.add(aula);
+                String horaInicio = rs.getString("horaInicio");
+                String horaFin = rs.getString("horaFin");
+                Responsable responsable = new Responsable(rs.getInt("id"), rs.getString("nombre"));
+                Integer numeroSesion = rs.getInt("numeroSesion");
+                Integer diaSemana = rs.getInt("numeroSesion");
+                Aula aula = new Aula(rs.getString("id"));
+
+                Sesion sesion = new Sesion(horaInicio, horaFin, responsable, numeroSesion, diaSemana, aula);
+                sesiones.add(sesion);
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.err.println(e.getMessage());
         }
-        return  aulas;
+        return  sesiones;
     }
 
     @Override
@@ -43,21 +50,44 @@ public class AulasRepositorySQL implements AulasRepository {
             ps.setString(2, sesion.getHoraInicio());
             ps.setString(3, String.valueOf(sesion.getResponsable()));
             ps.setInt(4, sesion.getNumeroSesion());
-            ps.setInt(5, sesion.getNumeroSesion());
+            ps.setInt(5, sesion.getDiaSemana());
+            ps.setString(6, String.valueOf(sesion.getAula()));
+            ps.execute();
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.err.println(e.getMessage());
         }
 
     }
 
     @Override
     public Aula findAula(String id) {
+
+        try {
+            Statement st = DBConnection.getInstance().createStatement();
+            ResultSet rs = st.executeQuery("select aula from sesion where id like '%" + id + "%';");
+
+            if(rs.next()){
+                return new Aula(rs.getString("id"));
+            }
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
         return null;
     }
 
     @Override
     public void deleteAula(String id) {
+
+        try {
+            Statement st = DBConnection.getInstance().prepareStatement("delete aula from sesion where id=" + id + ";");
+
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
 
     }
 }
