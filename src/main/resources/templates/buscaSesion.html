@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <div th:replace="~{fragments/head}"></div>
+<ul th:each="sesion:${sesiones}">
+    <li th:text="${sesion.diaSemana}"></li>
+    <li th:text="${sesion.numeroSesion}"></li>
+    <li th:text="${sesion.horaInicio}"></li>
+    <li th:text="${sesion.horaFin}"></li>
+    <li th:text="${sesion.aula.id}"></li>
+</ul>
+</body>
+</html>

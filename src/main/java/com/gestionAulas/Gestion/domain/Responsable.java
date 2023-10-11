@@ -2,10 +2,10 @@ package com.gestionAulas.Gestion.domain;
 
 public class Responsable {
 
-    private int id;
+    private Integer id;
     private String nombre;
 
-    public Responsable(int id, String nombre) {
+    public Responsable(Integer id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
