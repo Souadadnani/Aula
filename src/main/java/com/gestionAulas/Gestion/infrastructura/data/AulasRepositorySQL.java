@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class AulasRepositorySQL implements AulasRepository {
@@ -19,12 +20,11 @@ public class AulasRepositorySQL implements AulasRepository {
 
     @Override
     public List<Sesion> getAll() {
+
         List<Sesion> sesiones = new ArrayList<>();
-
-
         try {
             Statement st = DBConnection.getInstance().createStatement();
-            ResultSet rs = st.executeQuery("select * from sesion;");
+            ResultSet rs = st.executeQuery("select * from sesion order by numeroSesion;");
             while(rs.next()){
                 String horaInicio = rs.getString("horaInicio");
                 String horaFin = rs.getString("horaFin");
