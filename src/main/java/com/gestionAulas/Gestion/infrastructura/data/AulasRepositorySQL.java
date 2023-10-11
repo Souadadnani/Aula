@@ -28,10 +28,10 @@ public class AulasRepositorySQL implements AulasRepository {
             while(rs.next()){
                 String horaInicio = rs.getString("horaInicio");
                 String horaFin = rs.getString("horaFin");
-                Responsable responsable = new Responsable(rs.getInt("id"), rs.getString("nombre"));
+                Responsable responsable = new Responsable(rs.getInt("responsable"), rs.getString("responsable"));
                 Integer numeroSesion = rs.getInt("numeroSesion");
                 Integer diaSemana = rs.getInt("numeroSesion");
-                Aula aula = new Aula(rs.getString("id"));
+                Aula aula = new Aula(rs.getString("aula"));
 
                 Sesion sesion = new Sesion(horaInicio, horaFin, responsable, numeroSesion, diaSemana, aula);
                 sesiones.add(sesion);
