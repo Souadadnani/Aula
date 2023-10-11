@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface AulasRepository {
     List<Sesion> getAll();
-    Aula findAula(String id);
+    Sesion findAula(String id);
 
 
 }

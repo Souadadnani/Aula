@@ -8,8 +8,6 @@ public class DBConnection {
 
 
     private static Connection connection;
-
-
     private static final String HOST="dbaurora.cluster-clb7qxolr0lc.us-east-1.rds.amazonaws.com";
     private static final int PORT = 3306;
     private static final String DB_NAME = "gestion_aulas";

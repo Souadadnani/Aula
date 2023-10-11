@@ -26,12 +26,12 @@ public class AulasController {
         model.addAttribute("sesiones",listaSesiones);
         return "index";
     }
-    @GetMapping("/buscar")
+    @PostMapping("/buscar")
     String buscar(Model model,String id){
         List<Sesion> listaSesiones = this.aulasUseCases.getAll();
         List<Sesion> sesiones = new ArrayList<>();
         for (Sesion s: listaSesiones){
-            if(s.getAula().equals(id)){
+            if(s.getAula().getId().equals(id)){
                 sesiones.add(s);
                 model.addAttribute("sesiones",sesiones);
             }

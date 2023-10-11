@@ -15,7 +15,7 @@ public class AulasUseCases {
         return this.aulasRepository.getAll();
     }
 
-    public Aula findAula(String id){
+    public Sesion findAula(String id){
         return this.aulasRepository.findAula(id);
     }
 

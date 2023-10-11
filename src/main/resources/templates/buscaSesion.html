@@ -6,14 +6,15 @@
 </head>
 <body>
    <div th:replace="~{fragments/head}"></div>
-<ul th:each="sesion:${sesiones}">
-    <li th:text="${sesion.diaSemana}"></li>
-    <li th:text="${sesion.numeroSesion}"></li>
-    <li th:text="${sesion.horaInicio}"></li>
-    <li th:text="${sesion.horaFin}"></li>
-    <li th:text="${sesion.aula}"></li>
-    <li th:text="${sesion.responsable}"></li>
+    <ul th:each="sesion : ${sesiones}">
+        <li th:text="${sesion.horaInicio}"></li>
+        <li th:text="${sesion.horaFin}"></li>
+        <li th:text="${sesion.responsable}"></li>
+        <li th:text="${sesion.diaSemana}"></li>
+        <li th:text="${sesion.numeroSesion}"></li>
+        <li th:text="${sesion.aula}"></li>
 
-</ul>
+
+    </ul>
 </body>
 </html>
