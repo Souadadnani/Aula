@@ -43,24 +43,6 @@ public class AulasRepositorySQL implements AulasRepository {
     }
 
     @Override
-    public void save(Sesion sesion) {
-        try {
-            PreparedStatement ps = DBConnection.getInstance().prepareStatement("insert into sesion (horaFin,horaInicio, responsable, numeroSesion,diaSemana, aula) values(?,?,?,?,?,?);");
-            ps.setString(1, sesion.getHoraFin());
-            ps.setString(2, sesion.getHoraInicio());
-            ps.setString(3, String.valueOf(sesion.getResponsable()));
-            ps.setInt(4, sesion.getNumeroSesion());
-            ps.setInt(5, sesion.getDiaSemana());
-            ps.setString(6, String.valueOf(sesion.getAula()));
-            ps.execute();
-
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-        }
-
-    }
-
-    @Override
     public Aula findAula(String id) {
 
         try {
@@ -78,16 +60,4 @@ public class AulasRepositorySQL implements AulasRepository {
         return null;
     }
 
-    @Override
-    public void deleteAula(String id) {
-
-        try {
-            Statement st = DBConnection.getInstance().prepareStatement("delete aula from sesion where id=" + id + ";");
-
-
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-        }
-
-    }
 }

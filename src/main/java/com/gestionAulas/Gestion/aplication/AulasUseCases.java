@@ -11,16 +11,12 @@ public class AulasUseCases {
     public AulasUseCases(AulasRepository aulasRepository){
         this.aulasRepository=aulasRepository;
     }
-    public List<Aula> getAll(){
+    public List<Sesion> getAll(){
         return this.aulasRepository.getAll();
     }
-    public void save(Sesion sesion){
-        this.aulasRepository.save(sesion);
-    }
+
     public Aula findAula(String id){
         return this.aulasRepository.findAula(id);
     }
-    public void deleteAula(String id){
-         this.aulasRepository.deleteAula(id);
-    }
+
 }
