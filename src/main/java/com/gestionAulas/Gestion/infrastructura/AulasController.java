@@ -18,7 +18,6 @@ public class AulasController {
     public AulasController(){
         this.aulasUseCases=new AulasUseCases(new AulasRepositorySQL());
     }
-    List<Sesion> listaSesiones = new ArrayList<>();
 
     @GetMapping("/")
     String aula(Model model){

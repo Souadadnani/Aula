@@ -26,7 +26,7 @@ public class AulasRepositorySQL implements AulasRepository {
             while(rs.next()){
                 String horaInicio = rs.getString("horaInicio");
                 String horaFin = rs.getString("horaFin");
-                Responsable responsable = new Responsable(rs.getInt("responsable"), rs.getString("responsable"));
+                Responsable responsable = new Responsable(rs.getInt("responsable"));
                 Integer numeroSesion = rs.getInt("numeroSesion");
                 Integer diaSemana = rs.getInt("numeroSesion");
                 Aula aula = new Aula(rs.getString("aula"));
@@ -50,7 +50,7 @@ public class AulasRepositorySQL implements AulasRepository {
             while(rs.next()){
                 String horaInicio = rs.getString("horaInicio");
                 String horaFin = rs.getString("horaFin");
-                Responsable responsable = new Responsable(rs.getInt("responsable"), rs.getString("responsable"));
+                Responsable responsable = new Responsable(rs.getInt("responsable"));
                 Integer numeroSesion = rs.getInt("numeroSesion");
                 Integer diaSemana = rs.getInt("numeroSesion");
                 Aula aula = new Aula(rs.getString("aula"));

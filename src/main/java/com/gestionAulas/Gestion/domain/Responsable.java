@@ -5,9 +5,8 @@ public class Responsable {
     private Integer id;
     private String nombre;
 
-    public Responsable(Integer id, String nombre) {
+    public Responsable(Integer id) {
         this.id = id;
-        this.nombre = nombre;
     }
 
     public int getId() {
@@ -21,8 +20,7 @@ public class Responsable {
     @Override
     public String toString() {
         return "Responsable{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
+                "id=" + id + '\'' +
                 '}';
     }
 }
